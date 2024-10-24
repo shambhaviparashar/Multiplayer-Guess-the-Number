@@ -1,22 +1,22 @@
-# Use Microsoft's official .NET SDK image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
-WORKDIR /app
-EXPOSE 80
-
-# Build the app using the SDK
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+# Use the SDK image to build the application
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["GameServer/GameServer.csproj", "GameServer/"]
-RUN dotnet restore "GameServer/GameServer.csproj"
 COPY . .
-WORKDIR "/src/GameServer"
-RUN dotnet build "GameServer.csproj" -c Release -o /app/build
+RUN dotnet publish -c Release -o /app/out
 
-FROM build AS publish
-RUN dotnet publish "GameServer.csproj" -c Release -o /app/publish
-
-# Final stage, run the app
-FROM base AS final
+# Use a lightweight ASP.NET runtime image to run the application
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/out ./
+
+# Set the environment to Development to enable Swagger in Docker
+ENV ASPNETCORE_ENVIRONMENT=Development
+
+# Set the URLs the application should listen to
+ENV ASPNETCORE_URLS=http://*:80
+
+# Expose the application port (default port for ASP.NET Core apps)
+EXPOSE 80 
+
+# Set the entry point for the application
 ENTRYPOINT ["dotnet", "GameServer.dll"]

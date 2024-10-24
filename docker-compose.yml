@@ -21,6 +21,8 @@ services:
       dockerfile: GameServer/Dockerfile
     ports:
       - "8080:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
       - rabbitmq
       - sqlserver
