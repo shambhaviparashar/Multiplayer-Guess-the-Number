@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules
+*.log
+
+# Build files
+/build
+/dist
+
+# Docker
+docker-compose.override.yml
+Dockerfile*
+*.dockerignore
+
+# ASP.NET specific files
+bin/
+obj/
+
+# Environment variables
+.env
+
+# IDE and OS generated files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.DS_Store
+Thumbs.db

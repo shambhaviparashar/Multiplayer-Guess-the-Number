@@ -1,5 +1,3 @@
-version: '3.4'
-
 services:
   rabbitmq:
     image: "rabbitmq:management"
@@ -26,3 +24,12 @@ services:
     depends_on:
       - rabbitmq
       - sqlserver
+
+  frontend:
+    build:
+      context: ./multiplayer-game-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - gameserver
