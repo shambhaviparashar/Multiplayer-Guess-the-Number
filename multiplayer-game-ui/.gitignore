@@ -1,23 +1,64 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Logs
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Dependency directories
+node_modules/
 
-# testing
-/coverage
-
-# production
+# Production build
 /build
 
-# misc
+# Miscellaneous
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# React Native
+/ios/
+/android/
+
+# Tests
+/coverage
+
+# API keys and configuration
+aws-exports.js
+amplify/
+
+# Docker
+**/Dockerfile.dev
+**/Dockerfile.local
+docker-compose.override.yml
+
+# Ignore any generated artifacts
+*.log
+*.pid
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore the build output from .NET
+bin/
+obj/
+
+# Ignore generated files from AWS Amplify
+amplify/
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore Git files
+*.orig
+*.lock
+
+# Ignore system-specific files
+Thumbs.db
+*.swp
+
+# Local git configurations
+/.gitconfig.local

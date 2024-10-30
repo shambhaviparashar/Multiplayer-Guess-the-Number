@@ -17,9 +17,11 @@ const Lobby = () => {
   };
 
   return (
-    <div>
-      <h2>Game Lobby</h2>
-      <button onClick={handleCreateGame}>Create New Game</button>
+    <div className="container mt-5">
+      <h2 className="mb-4">Game Lobby</h2>
+      <button className="btn btn-primary btn-lg" onClick={handleCreateGame}>
+        Create New Game
+      </button>
     </div>
   );
 };

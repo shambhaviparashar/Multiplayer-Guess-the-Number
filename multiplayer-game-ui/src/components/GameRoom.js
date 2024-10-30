@@ -24,20 +24,25 @@ const GameRoom = ({ gameId }) => {
   };
 
   return (
-    <div>
-      <h2>Game Room:</h2>
-      <input
-        type="text"
-        value={guess}
-        onChange={(e) => setGuess(e.target.value)}
-        placeholder="Enter your guess"
-      />
-      <button onClick={handleGuess}>Submit Guess</button>
+    <div className="container mt-5">
+      <h2 className="mb-4">Game Room:</h2>
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          value={guess}
+          onChange={(e) => setGuess(e.target.value)}
+          className="form-control"
+          placeholder="Enter your guess"
+        />
+        <button className="btn btn-success" onClick={handleGuess}>
+          Submit Guess
+        </button>
+      </div>
       <div>
         <h3>Messages:</h3>
-        <ul>
+        <ul className="list-group">
           {messages.map((msg, index) => (
-            <li key={index}>{msg}</li>
+            <li key={index} className="list-group-item">{msg}</li>
           ))}
         </ul>
       </div>
