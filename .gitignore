@@ -1,29 +1,25 @@
-# Node.js dependencies
-node_modules
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build directory
+build/
+
+# Ignore log files
 *.log
 
-# Build files
-/build
-/dist
-
-# Docker
-docker-compose.override.yml
-Dockerfile*
-*.dockerignore
-
-# ASP.NET specific files
-bin/
-obj/
-
-# Environment variables
+# Ignore environment files
 .env
 
-# IDE and OS generated files
-.vscode/
-.idea/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+# Ignore lock files
+yarn.lock
+package-lock.json
+
+# Ignore OS and IDE specific files
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Ignore Docker-related files you don't want to track
+docker-compose.override.yml
